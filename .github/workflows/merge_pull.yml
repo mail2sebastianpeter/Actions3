@@ -17,4 +17,4 @@ jobs:
           git cherry-pick $(git log -n 1 branch1  --pretty=format:"%H")
           git push -u origin branch2
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-          gh pr create --title "For merging to master" --body "Merge code form branch2 to master" --base master --head branch2
+          gh pr create --title "For merging to master" --body "Merge code form branch2 to master" --base main --head branch2
