@@ -1,8 +1,5 @@
 name: Cherry-pick and Opening pull request  
-on: 
- push:
-  branches:
-      - branch1
+on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
