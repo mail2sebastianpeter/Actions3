@@ -1,4 +1,4 @@
-  
+name: Cherry-pick and Opening pull request  
 on: 
  push:
   branches:
@@ -14,8 +14,7 @@ jobs:
           git config user.name Sebastian Peter
           git config user.email mail2sebastianpeter@gmail.com
           git checkout branch2
-          git merge origin/banch1
+          git cherry-pick $(git log -n 1 branch1  --pretty=format:"%H")
           git push -u origin branch2
-          gh --version
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-          gh pr create --title "The bug is fixed" --body "Everything works again" --base main --head banch
+          gh pr create --title "For merging to master" --body "Merge code form branch2 to master" --base master --head branch2
