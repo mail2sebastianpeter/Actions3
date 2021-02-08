@@ -1,0 +1,17 @@
+name: Cherry-pick and Opening pull request  
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          git config user.name Sebastian Peter
+          git config user.email mail2sebastianpeter@gmail.com
+          git checkout branch2
+          git cherry-pick $(git log -n 1 origin/branch1  --pretty=format:"%H")
+          git push -u origin branch2
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+          gh pr create --title "For merging to master" --body "Merge code form branch2 to master" --base main --head branch2
