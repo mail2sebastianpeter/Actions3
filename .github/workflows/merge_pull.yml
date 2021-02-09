@@ -1,4 +1,4 @@
-name: Cherry-pick and Opening pull request  
+name: File Pick and Opening pull request  
 on: [workflow_dispatch]
 jobs:
   build:
