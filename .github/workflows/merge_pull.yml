@@ -11,7 +11,7 @@ jobs:
           git config user.name Sebastian Peter
           git config user.email mail2sebastianpeter@gmail.com
           git checkout branch2
-          git checkout origin/branch1 f9
+          git checkout origin/branch1 f10
           git add .
           git commit -m "added f9 to branch2" 
           git push -u origin branch2
