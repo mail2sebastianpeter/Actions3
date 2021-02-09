@@ -11,9 +11,8 @@ jobs:
           git config user.name Sebastian Peter
           git config user.email mail2sebastianpeter@gmail.com
           git checkout -b branch3
-          git push -u origin branch3
-          git checkout origin/branch1 f13
-          git commit -m "New Commit in Branch3 f13" 
+          git checkout origin/branch1 f14
+          git commit -m "New Commit in Branch3 f14" 
           git push -u origin branch3
           GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
           gh pr create --title "For merging to master" --body "Merge code form branch3 to master" --base main --head branch3
